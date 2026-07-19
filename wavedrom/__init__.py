@@ -17,7 +17,7 @@ import json
 
 def fixQuotes(inputString):
     # fix double quotes in the input file. opening with yaml and dumping with json fix the issues.
-    yamlCode = yaml.load(inputString, Loader=yaml.FullLoader)
+    yamlCode = yaml.safe_load(inputString)
     fixedString = json.dumps(yamlCode, indent=4)
     return fixedString
 
